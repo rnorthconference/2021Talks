@@ -1,74 +1,77 @@
 ---
-title: "Dazzling HTML Reports"
+title: "Sustainable Reporting in R"
 author: "Lindsey Dietz, PhD"
-date: "noRth (September 29, 2021)"
-output:
-  revealjs::revealjs_presentation:
-    theme: black
-    highlight: monochrome
-    transition: fade
+date: "noRth 2021 (September 29, 2021)"
+output: 
+  xaringan::moon_reader:
+    nature:
+        titleSlideClass: ["left", "top", "my-title"]
+    css: [default, metropolis, useR-fonts]
 
 ---
 
-## Disclaimer
+# Disclaimer
 
 The views expressed in this presentation are strictly my own. They do not necessarily represent the position of the Federal Reserve Bank of Minneapolis or the Federal Reserve System.
 
-## Goals of this tutorial
+---
 
-Introduce R tools that help you tell a data story in a professional, sustainable, and beautiful way. 
+# Goal of this tutorial
 
-Specifically, 
+Introduce R tools that help you communicate a data story in a professional, sustainable, and beautiful way. 
 
-- Set up your R ecosystem to support report creation
-- Explore table and graphics packages to support analysis
-- Produce an HTML report
-- Produce a PDF report
+![Updated from Grolemund & Wickham's classis R4DS schematic, envisioned by Dr. Julia Lowndes for her 2019 useR! keynote talk and illustrated by Allison Horst.](environmental-data-science-r4ds-general.png)
+---
 
-## Stuff I won't cover
+# In this tutorial
 
-- Shiny - we are going to focus on HTML (primary) and PDF (secondary) reports
-- Details of the table making or graphics packages - these could easily be their own tutorials
+- How to set up your R ecosystem to support report creation
+- Review of best practices to engage your report viewers
+- Briefly introduction to table and graphics packages to support analysis
+- Hands on production of an example HTML report
+- Hands on production of an example PDF report
+
+---
+
+# Not in this tutorial
+
+>- Shiny - we are going to focus on HTML (primary) and PDF (secondary) reports
+>- Details of the tables or graphics packages - these could easily be their own tutorials
 
 The good news is several speakers tomorrow will cover Shiny and other graphics applications!
 
-## {data-background="abed.jpg"}
-This tutorial might feel a little bit 'meta' or abstract. 
+---
 
-## Digression on UX principles for reporting (and almost anything else)
-
- - Meet the users’ needs 
- - Have a clear hierarchy - navigation should be natural
- - Understand accessibility - did you know 1 in 12 men are colorblind?
- - Keep it consistent - transition to or away from ideas slowly
- - Narrative design - tell a story with your design
- 
-## Older process of reporting
+# Older process of reporting
 
 - Do analysis in one tool (R)
 - Make tables and charts in another tool (Excel)
 - Paste everything into a text editor (Word)
 - Turn it into a final product (PDF)
 
-It works, but doesn't set you up for next time.
+---
 
-## {data-background-video="reddit.mp4"}
+# Organizing your R ecosystem
+![Artwork by @allison_horst](reproducibility_court.png)
 
-## Build an R ecosystem
+---
 
-- R project is the forest
-- R markdown is the tree
-- Tables and plots are the animals
-    + Table building using `DT` or `reactable` (or others)
-    + Plotting using `ggplot2` or `plotly`
+# Step 1. Create workflows that shred
+![Artwork by @allison_horst](cracked_setwd.png)
+---
 
-## R Project 
+# R Project 
 
-R projects define your working directories. This helps keeps paths relative rather than fixed. This makes the work portable and lets you introduce folders to keep things tidy. 
+R projects define your working directories. This helps keeps paths relative rather than fixed. This makes your work portable and allows you to keep things tidy. 
 
-![JB](jb.png)
+---
 
-## R Markdown
+# Step 2. Embrace the magic of R Markdown
+.center[![Artwork by @allison_horst](rmarkdown_wizards.png)]
+
+---
+
+# What is R Markdown?
 
 Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
@@ -76,32 +79,46 @@ Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word docu
 - Code chunks
 - Markdown/LaTeX
 
-## Tables
+---
 
-There are many table packages. I chose a couple that are good for HTML reports.
+# Step 3. Build your content - tables
 
-- `DT` - lighter weight starting point
-- `reactable` - more advanced customization
+There are many table packages. For HTML: `DT` and `reactable` are good starting points. For pdf, `kableExtra` is the gold standard.
 
-## Plots
+.center[![Artwork by @allison_horst](tidydata_7.jpg)]
 
-`ggplot2` works great on it's own. It can be enhanced by adding `plotly`.
+---
 
-## Tips
+# Step 4. Build your content - plots
+
+`ggplot2` works great as a static graphics package. For interactive graphics, use `plotly` or `highcharter`.
+
+.center[![Artwork by @allison_horst](presenting_monster.png)]
+
+---
+
+# Tips
 
  - Keep longer R scripts separate from R markdown file
    + Consider outputting summary data set to avoid longer processes when you load a report
  - Use parameters in your R markdown file to make it more timeless
  - Don't try to fit too much into one report - store different reports in the same folder if it makes sense
 
-<style type="text/css">
-  .reveal p {
-    text-align: left;
-  }
-  .reveal ul {
-    display: block;
-  }
-  .reveal ol {
-    display: block;
-  }  
-</style>
+---
+
+# UX principles for reporting (and almost anything else)
+
+Your report should:
+
+ - Meet the users’ needs 
+ - Have a clear hierarchy that makes navigation natural
+ - Understand and embrace accessibility - did you know 1 in 12 men are colorblind?
+ - Maintain time consistency - transition to or away from ideas slowly
+ - Have a narrative - tell a story with your design
+ 
+---
+
+# References and Thanks
+
+ - Amazing artwork by @allison_horst sourced from: https://github.com/allisonhorst/stats-illustrations
+ - First page artwork credit: "Updated from Grolemund & Wickham's classis R4DS schematic, envisioned by Dr. Julia Lowndes for her 2019 useR! keynote talk and illustrated by Allison Horst."

@@ -8,9 +8,9 @@ output:
     highlight: tango
     code_folding: hide
 params:
-  month: '03'
+  month: '09'
   year: '2021'
-  plot_type: 'fixed'
+  plot_type: ''
 
 ---
 <!-- (stuff above this line is YAML and behaves differently than the rest of the doc) -->
@@ -35,7 +35,7 @@ This is my monthly report for `r paste(params$month, params$year, sep = "-")`.
 <!-- (** makes it bold) -->
 **This is really important information that people should read before looking at my output.**
 
-Here is formula in LaTeX: $y = \alpha + \beta x$.
+Here is a key formula that the reader should know about: $y = \alpha + \beta x$.
 
 References:
 
@@ -58,15 +58,18 @@ library(reactable)
 #Plots
 library(ggplot2)
 library(plotly)
+library(dygraphs)
+
 
 library(dplyr)
+library(tidyr)
 ```
 
 I'm going to get some unemployment data from FRED to demo.
 
 ```{r, results = 'hide', message = FALSE}
 source("../scripts/fred_script.R")
-df <- fred_function(start_date = "2002-03-01", end_date = "2021-03-01")
+df <- fred_function(start_date = "2005-01-01", end_date = "2021-09-01")
 
 ```
 
@@ -122,14 +125,28 @@ myplot <- ggplot(df, aes(x = Date, y = UR, color = Category)) +
   geom_line() +
   theme_bw() + ylab("Unemployment Rate")
 
-if(params$plot_type == 'fixed'){
-  #Fixed ggplot
-  myplot
-  
-}else{
+if(params$plot_type == 'plotly'){
   #Dynamic plot with plotly 
   ggplotly(myplot)
   
+}else if (params$plot_type == 'dygraphs'){
+  
+  #Dynnamic time series plot with dygraphs
+ df <- df %>% 
+    select(Date, Category, UR) %>%
+    tidyr::pivot_wider(id_cols = 'Date', names_from = 'Category', values_from = 'UR')
+  
+ dygraph(xts::xts(df, order.by = df$Date), main = "Unemployment Rate") %>% 
+  dyRangeSelector(dateWindow = c("2005-01-01", "2021-09-30")) %>%
+  dyHighlight(highlightCircleSize = 5, 
+              highlightSeriesBackgroundAlpha = 0.2,
+              hideOnMouseOut = FALSE) %>%
+  dyLegend(width = 600)
+
+  
+}else{
+  #Fixed ggplot
+  myplot
 }
 
 ```
