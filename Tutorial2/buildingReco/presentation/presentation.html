@@ -35,11 +35,16 @@ Introduce R tools that help you communicate a data story in a professional, sust
 
 # In this tutorial
 
-- How to set up your R ecosystem to support report creation
-- Review of best practices to engage your report viewers
-- Briefly introduction to table and graphics packages to support analysis
-- Hands on production of an example HTML report
-- Hands on production of an example PDF report
+- How to set up your R ecosystem to support report creation in HTML (and PDF)
+
+--
+
+- Brief overview of table and graphics packages to support analysis
+
+--
+
+- Tips and tricks to make yourself less operationally essential
+
 
 ---
 
@@ -54,40 +59,97 @@ The good news is several speakers tomorrow will cover Shiny and other graphics a
 
 # Older process of reporting
 
-- Do analysis in one tool (R)
-- Make tables and charts in another tool (Excel)
-- Paste everything into a text editor (Word)
-- Turn it into a final product (PDF)
+- Do analysis in one tool (R/SAS/SPSS/etc.)
+--
 
+- Make tables and charts in another tool (Excel)
+--
+
+- Paste everything into a text editor (Word/LaTeX)
+--
+
+- Turn it into a final product (PDF)
+--
+.center[
+![Gif](https://media.giphy.com/media/2wZpm9zyceDyXHPf5S/giphy.gif?cid=ecf05e478g7s2h8a64fmbzty3bbgu6lh5ctbqmxh6t289p1t&amp;rid=giphy.gif&amp;ct=g)
+]
 ---
 
-# Organizing your R ecosystem
+# Build an R ecosystem for Reporting
 ![Artwork by @allison_horst](reproducibility_court.png)
 
 ---
 
-# Step 1. Create workflows that shred
+# Create workflows that shred
 ![Artwork by @allison_horst](cracked_setwd.png)
 ---
 
 # R Project 
 
-R projects define your working directories. This helps keeps paths relative rather than fixed. This makes your work portable and allows you to keep things tidy. 
+"R experts keep all the files associated with a project together — input data, R scripts, analytical results, figures. This is such a wise and common practice that RStudio has built-in support for this via projects." 
+-- Hadley Wickham ([R for Data Science](https://r4ds.had.co.nz/workflow-projects.html))
+
+--
+
+R projects define your working directories. This helps keeps paths relative rather than fixed. This makes your work portable and allows you to keep things tidy.
 
 ---
 
-# Step 2. Embrace the magic of R Markdown
-.center[![Artwork by @allison_horst](rmarkdown_wizards.png)]
+# Let's do it!
+
+ 1. Open RStudio 
+ 2. Configure global options to avoid saving .Rdata
+     - Tools -&gt; Global Options -&gt; Workspace -&gt; Uncheck the box. Change the dropdown to Never.
+     - Restart RStudio
+ 3. Create an R project to associate with this talk or another set of files
+
+---
+
+# Embrace the magic of R Markdown
+![Artwork by @allison_horst](rmarkdown_wizards.png)]
 
 ---
 
 # What is R Markdown?
 
-Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;http://rmarkdown.rstudio.com&gt;.
+R + Markdown (text-to-HTML conversion tool) = R Markdown
 
-- YAML Header
-- Code chunks
-- Markdown/LaTeX
+--
+
+R Markdown files are designed to be used in three ways:
+
+ - As an environment for you to do data science.
+ - Collaborating with other data scientists with interest in your conclusions and how you reached them (the code).
+ - **For communicating to decision makers, who want to focus on the conclusions, not the code behind the analysis.**
+
+---
+
+# Let's do it!
+
+ 1. File -&gt; New File -&gt; R Markdown -&gt; Document -&gt; HTML -&gt; Save
+ 2. Knit it!
+ 3. Open the dazzle.Rmd file inside the tutorial folder
+     - YAML Header
+     - Code chunks
+     - Markdown/LaTeX
+
+---
+
+# Dazzling Elements in R Markdown
+
+ - Using parameters in YAML header
+ - Hiding code chunks and including 'Easter eggs' for other analysts
+ - Using tabs and drop downs to improve pagination
+   
+---
+
+# Folder Infrastructure
+
+ - Source longer R scripts from an R markdown file
+   + Consider outputting summary data set to avoid longer processes when you load a report
+ - Don't try to fit too much into one report - store different reports in the same folder if it makes sense
+ 
+ Highly recommend this talk by Emily Riederer from rStudio::conf 2020: https://www.rstudio.com/resources/rstudioconf-2020/rmarkdown-driven-development/
 
 ---
 
@@ -107,15 +169,6 @@ There are many table packages. For HTML: `DT` and `reactable` are good starting 
 
 ---
 
-# Tips
-
- - Keep longer R scripts separate from R markdown file
-   + Consider outputting summary data set to avoid longer processes when you load a report
- - Use parameters in your R markdown file to make it more timeless
- - Don't try to fit too much into one report - store different reports in the same folder if it makes sense
-
----
-
 # UX principles for reporting (and almost anything else)
 
 Your report should:
@@ -132,6 +185,14 @@ Your report should:
 
  - Amazing artwork by @allison_horst sourced from: https://github.com/allisonhorst/stats-illustrations
  - First page artwork credit: "Updated from Grolemund &amp; Wickham's classis R4DS schematic, envisioned by Dr. Julia Lowndes for her 2019 useR! keynote talk and illustrated by Allison Horst."
+ - R for Data Science 
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 30px;
+    padding: 1em 1em 1em 1em;
+}
+&lt;/style&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

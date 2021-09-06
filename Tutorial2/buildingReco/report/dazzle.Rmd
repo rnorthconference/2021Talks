@@ -47,7 +47,12 @@ References:
 These are the R packages I'm going to highlight:
 
 <!-- (here is an R code chunk; I've used some options to hide things) -->
-```{r libraries, warning = FALSE, results = 'hide', message = FALSE}
+```{r libraries1, warning = FALSE, include = FALSE, message = FALSE}
+library(dplyr)
+library(tidyr)
+```
+
+```{r libraries2, warning = FALSE, message = FALSE}
 #The report
 library(rmarkdown)
 
@@ -59,19 +64,24 @@ library(reactable)
 library(ggplot2)
 library(plotly)
 library(dygraphs)
-
-
-library(dplyr)
-library(tidyr)
 ```
 
 I'm going to get some unemployment data from FRED to demo.
 
 ```{r, results = 'hide', message = FALSE}
 source("../scripts/fred_script.R")
-df <- fred_function(start_date = "2005-01-01", end_date = "2021-09-01")
-
+start_date <- "2005-01-01"
+end_date <- "2021-09-01"
+analyst_info <- data.frame(start_date, end_date, date_executed = Sys.Date())
+df <- fred_function(start_date = start_date, end_date = end_date)
 ```
+
+<details>
+<summary> Analysts might want to know this information </summary>
+```{r, message = FALSE}
+print(analyst_info)
+```
+</details>
 
 ## Interactive Tables {.tabset .tabset-pills}
 <!-- ## Interactive Tables {.tabset .tabset-dropdown} -->
