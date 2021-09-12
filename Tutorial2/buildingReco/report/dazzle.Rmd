@@ -8,9 +8,9 @@ output:
     highlight: tango
     code_folding: hide
 params:
-  month: '09'
-  year: '2021'
-  plot_type: ''
+  dept: 'Management Committee'
+  plot_type: 'highcharter'
+  data_end_date: '2021-09-01'
 
 ---
 <!-- (stuff above this line is YAML and behaves differently than the rest of the doc) -->
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 <!-- (using parameters in Rmarkdown; don't forget the r) -->
-This is my monthly report for `r paste(params$month, params$year, sep = "-")`. 
+This is my report for the `r paste(params$dept)`. I'm creating a plot using `r paste(params$plot_type)`.  
 
 
 <!-- (making tabs) -->
@@ -63,7 +63,7 @@ library(reactable)
 #Plots
 library(ggplot2)
 library(plotly)
-library(dygraphs)
+library(highcharter)
 ```
 
 I'm going to get some unemployment data from FRED to demo.
@@ -71,7 +71,7 @@ I'm going to get some unemployment data from FRED to demo.
 ```{r, results = 'hide', message = FALSE}
 source("../scripts/fred_script.R")
 start_date <- "2005-01-01"
-end_date <- "2021-09-01"
+end_date <- params$data_end_date
 analyst_info <- data.frame(start_date, end_date, date_executed = Sys.Date())
 df <- fred_function(start_date = start_date, end_date = end_date)
 ```
@@ -139,22 +139,21 @@ if(params$plot_type == 'plotly'){
   #Dynamic plot with plotly 
   ggplotly(myplot)
   
-}else if (params$plot_type == 'dygraphs'){
+}else if (params$plot_type == 'highcharter'){
   
-  #Dynnamic time series plot with dygraphs
- df <- df %>% 
-    select(Date, Category, UR) %>%
-    tidyr::pivot_wider(id_cols = 'Date', names_from = 'Category', values_from = 'UR')
+ #Dynamic plot with highcharter
+ df %>% 
+    dplyr::select(Date, Category, UR)  %>% 
+    highcharter::hchart(., 
+         type = "line", 
+         hcaes(x = Date, 
+               y = UR, 
+               group = Category)) %>% 
+  hc_yAxis(opposite = TRUE,
+           labels = list(format = "{value}%")) %>% 
+  hc_tooltip(pointFormat = '{point.x:%Y-%m-%d}')
   
- dygraph(xts::xts(df, order.by = df$Date), main = "Unemployment Rate") %>% 
-  dyRangeSelector(dateWindow = c("2005-01-01", "2021-09-30")) %>%
-  dyHighlight(highlightCircleSize = 5, 
-              highlightSeriesBackgroundAlpha = 0.2,
-              hideOnMouseOut = FALSE) %>%
-  dyLegend(width = 600)
-
-  
-}else{
+}else if (params$plot_type == 'ggplot2'){
   #Fixed ggplot
   myplot
 }
