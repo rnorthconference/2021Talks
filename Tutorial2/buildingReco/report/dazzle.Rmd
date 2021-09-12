@@ -10,18 +10,22 @@ output:
 params:
   dept: 'Management Committee'
   plot_type: 'highcharter'
+  data_start_date: '2005-01-01'
   data_end_date: '2021-09-01'
 
 ---
-<!-- (stuff above this line is YAML and behaves differently than the rest of the doc) -->
+<!-- (stuff above this line is YAML Ain't Markup Language (YAML) and behaves differently than the rest of the doc) -->
 
 
-<!-- (this just shows up when you create Rmarkdown) -->
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+<!-- (this chunk shows up when you create Rmarkdown to show you how to set global options; `echo = FALSE` prevents printing of the R code inside chunks) -->
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
 ```
 
 <!-- (using parameters in Rmarkdown; don't forget the r) -->
+<!-- (This statement above all tabs) -->
 This is my report for the `r paste(params$dept)`. I'm creating a plot using `r paste(params$plot_type)`.  
 
 
@@ -47,12 +51,12 @@ References:
 These are the R packages I'm going to highlight:
 
 <!-- (here is an R code chunk; I've used some options to hide things) -->
-```{r libraries1, warning = FALSE, include = FALSE, message = FALSE}
+```{r libraries1, include = FALSE}
 library(dplyr)
 library(tidyr)
 ```
 
-```{r libraries2, warning = FALSE, message = FALSE}
+```{r libraries2, echo = TRUE}
 #The report
 library(rmarkdown)
 
@@ -68,29 +72,27 @@ library(highcharter)
 
 I'm going to get some unemployment data from FRED to demo.
 
-```{r, results = 'hide', message = FALSE}
+```{r, results = 'hide', echo = TRUE}
 source("../scripts/fred_script.R")
-start_date <- "2005-01-01"
-end_date <- params$data_end_date
-analyst_info <- data.frame(start_date, end_date, date_executed = Sys.Date())
-df <- fred_function(start_date = start_date, end_date = end_date)
+analyst_info <- data.frame(data_start_date = params$data_start_date, data_end_date = params$data_end_date)
+df <- fred_function(start_date = params$data_start_date, end_date = params$data_end_date)
 ```
-
+<!-- I can directly add HTML into my document -->
 <details>
 <summary> Analysts might want to know this information </summary>
-```{r, message = FALSE}
+```{r}
 print(analyst_info)
 ```
 </details>
 
 ## Interactive Tables {.tabset .tabset-pills}
-<!-- ## Interactive Tables {.tabset .tabset-dropdown} -->
+<!-- Try changing .tabset-pills to .tabset-dropdown -->
 
 ### with DT
 
 [The R package `DT` provides an R interface to the JavaScript library DataTables](https://rstudio.github.io/DT/). R data objects (matrices or data frames) can be displayed as tables on HTML pages, and DataTables provides filtering, pagination, sorting, and many other features in the tables.
 
-```{r fred_table, echo=FALSE}
+```{r fred_table}
 DT::datatable(df, filter = 'top', extensions = 'Buttons', 
               options = list(dom = 'Bfrtip', buttons = c('copy', 'csv', 'excel')))
 ```
@@ -108,8 +110,9 @@ DT::datatable(df, filter = 'top', extensions = 'Buttons',
  - Conditional styling
  - Works seamlessly within R Markdown documents and Shiny apps
 
-```{r data, echo=FALSE}
+```{r data}
 
+#Create a cool color scale
 orange_pal <- function(x) rgb(colorRamp(c('#FFFFFF', "#ffb54d", "#B22222"))(x), maxColorValue = 255)
 
 reactable::reactable(df, filterable = TRUE, groupBy = "Category", 
@@ -129,7 +132,7 @@ reactable::reactable(df, filterable = TRUE, groupBy = "Category",
 ## Interactive or Fixed Plot
 
 <!-- (Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.) -->
-```{r plot, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
+```{r plot, fig.width=10}
 
 myplot <- ggplot(df, aes(x = Date, y = UR, color = Category)) + 
   geom_line() +

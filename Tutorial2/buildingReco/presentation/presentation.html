@@ -39,7 +39,7 @@ Introduce R tools that help you communicate a data story in a professional, sust
 
 --
 
-- Brief overview of table and graphics packages to support analysis
+- Examples of table and graphics packages to support analysis
 
 --
 
@@ -153,6 +153,7 @@ R Markdown files are designed to be used in three ways:
  - Hiding code chunks and including 'Easter eggs' for other analysts
  - Using tabs and drop downs to improve pagination
  - Adding meaningful color to output
+ - [Style output using HTML themes](https://www.datadreaming.org/post/r-markdown-theme-gallery/)
    
 ---
 
@@ -203,7 +204,7 @@ tinytex::install_tinytex()
 
 ---
 
-# Step 3. Build your content - tables
+# Step 3. Build your tabular content
 
 There are many table packages. For HTML, `DT` and `reactable` are good starting points. For pdf, `kableExtra` is the gold standard.
 
@@ -211,23 +212,32 @@ There are many table packages. For HTML, `DT` and `reactable` are good starting 
 
 ---
 
-# Step 4. Build your content - plots
+# Step 4. Build your graphical content
 
-`ggplot2` works great as a static graphics package. For interactive graphics, use `plotly` or `highcharter`.
+`ggplot2` works great as a static graphics package. For interactive graphics, use packages like `plotly` or `highcharter`.
 
 .center[![:scale 75%](img/presenting_monster.png)]
 
 ---
 
-# Best UX principles for reporting
+# Tips for Tables and Graphics
+
+ - Create tables and graphics to support a narrative
+     + Storyboard your ideas on paper or a whiteboard before diving in
+ - Build the tables and graphics outside of R Markdown first to avoid extra loading overhead
+ - Think about your user's needs
+     + Do they like to download the data?
+     + Are you using color in an intentional way? (1 in 12 men are colorblind)
+
+---
+
+# Additional UX principles for reporting
 
 Your report should:
 
- - Meet the users’ needs 
  - Have a clear hierarchy that makes navigation natural
- - Understand and embrace accessibility - did you know 1 in 12 men are colorblind?
+ - Understand and embrace accessibility
  - Maintain time consistency - transition to or away from ideas slowly
- - Have a narrative - tell a story with your design
  
 ---
 
