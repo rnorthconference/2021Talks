@@ -3,15 +3,15 @@ Speaker materials for 2021 noRth conference on September 29-30, 2021.
 
 # Conference Talks
 
-- Lindsey Dietz: (Tutorial) Building a Sustainable R Ecosystem for Reporting
-- Gabriela de Queiroz, Stacey Ronaghan, & Saishruthi Swaminathan: (Tutorial) Toolbox to Mitigate Bias in AI
+- Lindsey Dietz: (Tutorial1) Building a Sustainable R Ecosystem for Reporting
+- Gabriela de Queiroz, Stacey Ronaghan, & Saishruthi Swaminathan: (Tutorial2) Toolbox to Mitigate Bias in AI
 - Brad Price: (Keynote) Using Data Science and Open Source Tools in the COVID-19 Response in West Virginia
-- Fiona Lodge: To the basics and beyond of Rshiny applications
-- Frank Corrigan: Scenario Planning, with Data, on Steroids
-- Carrie M. Tribble: A picture is worth 3.7 billion years: Showing evolution in R
-- Eric J. Daza: StoRies from Biostatistics to Health Data Science
-- Adam Saffer: Visualizing networks with overlapping groups
-- Claire McKay Bowen: Generating Synthetic Data for Data Privacy in R
+- Fiona Lodge: (Breakout2-Track1) To the basics and beyond of Rshiny applications
+- Frank Corrigan: (Breakout2-Track2) Scenario Planning, with Data, on Steroids
+- Carrie M. Tribble: (Breakout3-Track1) A picture is worth 3.7 billion years: Showing evolution in R
+- Eric J. Daza: (Breakout3-Track2) StoRies from Biostatistics to Health Data Science
+- Adam Saffer: (Breakout4-Track1) Visualizing networks with overlapping groups
+- Claire McKay Bowen: (Breakout4-Track2) Generating Synthetic Data for Data Privacy in R
 
 # Conference Startup Materials
 
