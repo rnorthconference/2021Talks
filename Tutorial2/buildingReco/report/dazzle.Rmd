@@ -9,10 +9,11 @@ output:
     code_folding: hide
 params:
   dept: 'Management Committee'
-  plot_type: 'highcharter'
+  plot_type: 
+      value: 'highcharter'
+      choices: ['highcharter', 'ggplot2', 'plotly']
   data_start_date: '2005-01-01'
   data_end_date: '2021-09-01'
-
 ---
 <!-- (stuff above this line is YAML Ain't Markup Language (YAML) and behaves differently than the rest of the doc) -->
 

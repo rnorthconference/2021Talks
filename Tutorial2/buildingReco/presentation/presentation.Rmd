@@ -1,22 +1,38 @@
 ---
-title: "Sustainable Reporting in R"
+title: "Building a Sustainable R Ecosystem for Reporting"
 author: "Lindsey Dietz, PhD"
-date: "noRth 2021 (September 29, 2021)"
+date: 'noRth 2021 Tutorial (September 29, 2021) <br> `r icons::fontawesome("linkedin")` [lindseydietz](https://www.linkedin.com/in/lindseydietz/) <br> `r icons::fontawesome("twitter")` [lindseydietz13](https://twitter.com/lindseydietz13)'
 output: 
   xaringan::moon_reader:
+    css: [default, metropolis, useR-fonts]
     nature:
         titleSlideClass: ["left", "top", "my-title"]
         beforeInit: "macros.js" 
         ratio: 4:3
-    css: [default, metropolis, useR-fonts]
-
+        
 ---
-
 # Disclaimer
 
 The views expressed in this presentation are strictly my own. They do not necessarily represent the position of the Federal Reserve Bank of Minneapolis or the Federal Reserve System.
 
 ---
+
+# Who am I?
+
+.pull-left[
+![LD](img/LindseyDietz.png)
+]
+
+.pull-right[
+- Financial Economist working on stress testing models
+- Co-creator of the noRth conference
+- [R Ladies - Twin Cities meetup co-organizer](https://www.meetup.com/rladies-tc/members/)
+- [IF/THEN AAAS STEM Ambassador](https://www.ifthenshecan.org/ambassadors/)
+- [Hall of Fame college athlete](https://umdbulldogs.com/honors/umd-athletic-hall-of-fame/lindsey-dietz/130)
+]
+
+---
+
 
 # Goal of this tutorial
 
@@ -130,12 +146,17 @@ R Markdown files are designed to be used in three ways:
 
 # Let's do it!
 
- 1. File -> New File -> R Markdown -> Document -> HTML -> Save
- 2. Knit it!
- 3. Open the dazzle.Rmd file inside the tutorial folder
+ 1. Open the 0_dazzle.Rmd file inside the report folder
      - YAML Header
      - Code chunks
      - Markdown/LaTeX
+ 2. Open the 1_dazzle.Rmd file inside the report folder
+     - File organization
+ 3. Open the 2_dazzle.Rmd file inside the report folder
+     - Knitting with parameters
+ 4. Open the 3_dazzle.Rmd file inside the report folder
+     - Adding HTML and tables
+ 5. Open the dazzle.Rmd file inside the report folder
 
 ---
 
@@ -177,7 +198,7 @@ R Markdown files are designed to be used in three ways:
 
 .pull-right[
 - HTML is *interactive* without being Shiny
-- HTML is *portable* and everyone you know has a web browser to open it
+- HTML is *portable* and everyone you know has a web browser
 - TeX overhead can be high for creation of pdf and RMD files may fail to knit in different environments 
 ]
 
@@ -233,6 +254,13 @@ Your report should:
  
 ---
 
+# Extensions
+
+ - Deployment on a centralized server such as RStudio Connect opens up options such as scheduled reporting with email blasts
+ - HTML reporting could be extended to true Shiny reporting if your users are asking for more interactivity 
+
+---
+
 # References and Thanks
 
  - Amazing artwork by Allison Horst sourced from: https://github.com/allisonhorst/stats-illustrations
@@ -247,4 +275,5 @@ Your report should:
     font-size: 30px;
     padding: 1em 1em 1em 1em;
 }
+
 </style>
