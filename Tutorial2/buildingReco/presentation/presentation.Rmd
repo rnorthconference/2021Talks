@@ -4,6 +4,7 @@ author: "Lindsey Dietz, PhD"
 date: 'noRth 2021 Tutorial (September 29, 2021) <br> `r icons::fontawesome("linkedin")` [lindseydietz](https://www.linkedin.com/in/lindseydietz/) <br> `r icons::fontawesome("twitter")` [lindseydietz13](https://twitter.com/lindseydietz13)'
 output: 
   xaringan::moon_reader:
+    self_contained: true
     css: [default, metropolis, useR-fonts]
     nature:
         titleSlideClass: ["left", "top", "my-title"]
