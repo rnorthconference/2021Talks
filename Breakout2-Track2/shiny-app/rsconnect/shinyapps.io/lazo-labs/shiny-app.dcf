@@ -1,0 +1,13 @@
+name: shiny-app
+title: shiny-app
+username:
+account: lazo-labs
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4728168
+bundleId: 5069452
+url: https://lazo-labs.shinyapps.io/shiny-app/
+when: 1632511430.85483
+lastSyncTime: 1632511430.85484
+asMultiple: FALSE
+asStatic: FALSE
