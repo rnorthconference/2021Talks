@@ -1,0 +1,49 @@
+/*
+ * DotConnected
+ * ----------
+ */
+
+/* logo */
+.skin-blue .main-header .logo {
+                     background-color: #000000;
+                     }
+
+/* logo when hovered */
+.skin-blue .main-header .logo:hover {
+                     background-color: #000000;
+                     }
+
+/* navbar (rest of the header) */
+.skin-blue .main-header .navbar {
+                     background-color: #000000;
+                     }        
+
+/* main sidebar */
+.skin-blue .main-sidebar {
+                     background-color: #CCCCCC;
+                     }
+
+/* active selected tab in the sidebarmenu */
+.skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
+                     background-color: #CCCCCC;
+                     }
+
+/* other links in the sidebarmenu */
+.skin-blue .main-sidebar .sidebar .sidebar-menu a{
+                     background-color: #D4E6C7;
+                     color: #000000;
+                     }
+
+/* other links in the sidebarmenu when hovered */
+.skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
+                     background-color: #FAD8C1;
+                     }
+/* toggle button when hovered  */                    
+.skin-blue .main-header .navbar .sidebar-toggle:hover{
+                     background-color: #FAD8C1;
+                     }
+                     ')))
+       )
+
+
+)

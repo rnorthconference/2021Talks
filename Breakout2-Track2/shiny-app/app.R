@@ -171,7 +171,20 @@ ui <- fluidPage(
       # Output: Tabset w/ plot, summary, and table ----
       tabsetPanel(type = "tabs",
                   tabPanel("Single Instance", plotOutput("single_sim_box", height = "1000px")),
-                  tabPanel("Scenario Comparison", plotOutput("scenario_plan_line", height = "1000px")))
+                  tabPanel("Scenario Comparison", plotOutput("scenario_plan_line", height = "1000px")),
+                  tabPanel("Takeaways",
+                           tags$div(tags$ul(
+                             br(),
+                             tags$li(tags$span("Aggregating many independent instances to reveal possibilities is the key.")),
+                             br(),
+                             tags$li(tags$span("Make sure you validate the output of every step (remove randomness before adding randomness).")),
+                             br(),
+                             tags$li(tags$span("Domain expertise is as important as the code.")),
+                             br(),
+                             tags$li(tags$span("Before you begin, it is important to understand the decisions so you know what levers you should create in your model - otherwise, endless what-ifs.")),
+                             br(),
+                             tags$li(tags$span("If you want to calibrate your model, run it for historical periods to see where it performs well or fails."))
+                  ))))
     )
   )
 )
@@ -193,9 +206,9 @@ server <- function(input, output) {
   sim_agg_base <- reactive({
     
     d <- sim_data_base()
-    prob_base_1250 <<- 1 - ecdf(d$dwhse_volume)(1250)
     d %>% group_by(dwhse_arrival_date) %>%
-      summarise(arrival_volume = mean(dwhse_volume)) %>%
+      summarise(arrival_volume = mean(dwhse_volume),
+                arrival_volume_75 = quantile(dwhse_volume, 0.75)) %>%
       mutate(sim = "base")
     
   })
@@ -214,7 +227,8 @@ server <- function(input, output) {
   sim_agg_comp <- reactive({
 
     sim_data_comp() %>% group_by(dwhse_arrival_date) %>%
-      summarise(arrival_volume = mean(dwhse_volume)) %>%
+      summarise(arrival_volume = mean(dwhse_volume),
+                arrival_volume_75 = quantile(dwhse_volume, 0.75)) %>%
       mutate(sim = "scenario")
 
   })
@@ -267,9 +281,7 @@ server <- function(input, output) {
     req(sim_plan_comp())
     d <- sim_plan_comp()
     
-    print(head(d[d$dwhse_arrival_date > as.Date("2021-02-15"),],20))
-    
-    ggplot(d, aes(x=dwhse_arrival_date, y=arrival_volume, group=sim, color=sim)) +
+    ggplot(d, aes(x=dwhse_arrival_date, y=arrival_volume_75, group=sim, color=sim)) +
       geom_line() +
       theme_minimal() +
       scale_color_manual(values=c("dodgerblue", "deeppink")) +
@@ -286,11 +298,6 @@ server <- function(input, output) {
                ymin = 0, ymax = 2500,
                alpha = .05)
     
-  })
-  
-  output$prob_base_1250 <- renderText({
-    d <- sim_data_base()
-    1 - ecdf(d$dwhse_volume)(1250)
   })
   
 }

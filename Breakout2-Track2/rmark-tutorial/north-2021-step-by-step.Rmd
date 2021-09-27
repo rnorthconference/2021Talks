@@ -435,25 +435,4 @@ sim_plan_2 <- sim_function(num_sims = 100, num_ports = 10,
 
 sim_plan_comp <- rbind(sim_plan_1, sim_plan_2)
 
-ggplot(sim_plan_comp, aes(x=dwhse_arrival_date, y=dwhse_arrival_volume, group=sim, color=sim)) +
-  geom_line() +
-  theme_minimal() +
-  scale_color_manual(values=c("dodgerblue", "deeppink")) +
-  scale_y_continuous(limits = c(0, 2000), breaks = seq(0, 2000, 100)) +
-  scale_x_date(date_breaks = "1 week") +
-  labs(x = "Warehouse Arrival Date", y = "Warehouse Arrival Volume", title = "Multi Instance (Mean) Arrival Volume Scenario Comparison", color ="Scenario") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  geom_hline(yintercept = 1000, color = "red") +
-  annotate("rect", xmin = as.Date("2021-02-01"), xmax = as.Date("2021-02-15"),
-           ymin = 0, ymax = 2000,
-           alpha = .05)
-
 ```
-
-## The Most Important Things to Remember
-
-1. <mark>Aggregating many independent instances to reveal possibilities is the key.</mark>
-2. <mark>Make sure you validate the output of every step (remove randomness before adding randomness).</mark>
-3. <mark>Domain expertise is as important as the code.</mark>
-4. <mark>Before you begin, it is important to understand the decisions so you know what levers you should create in your model - otherwise, endless what-ifs.</mark>
-4. <mark>If you want to calibrate your model, run it for historical periods to see where it performs well or fails.</mark>

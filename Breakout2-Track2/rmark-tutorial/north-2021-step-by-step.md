@@ -21,7 +21,7 @@ rnorm(1, 14, 2) # single value, normal
 ```
 
 ```
-## [1] 13.26136
+## [1] 15.16859
 ```
 
 Now, lets sample ten thousand observations and plot it to ensure it does, indeed, give us a normal distribution of values around the mean value of 14.
@@ -97,57 +97,57 @@ head(single_instance_manual) %>%
 <tbody>
   <tr>
    <td style="text-align:left;"> 2020-12-01 </td>
-   <td style="text-align:right;"> 1001 </td>
-   <td style="text-align:right;"> 12.27641 </td>
-   <td style="text-align:right;"> 19.52169 </td>
-   <td style="text-align:right;"> 3.092947 </td>
-   <td style="text-align:right;"> 35 </td>
-   <td style="text-align:left;"> 2021-01-05 </td>
+   <td style="text-align:right;"> 1000 </td>
+   <td style="text-align:right;"> 14.58543 </td>
+   <td style="text-align:right;"> 16.82507 </td>
+   <td style="text-align:right;"> 4.638071 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:left;"> 2021-01-06 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2020-12-02 </td>
    <td style="text-align:right;"> 1000 </td>
-   <td style="text-align:right;"> 12.91258 </td>
-   <td style="text-align:right;"> 15.32821 </td>
-   <td style="text-align:right;"> 2.715433 </td>
-   <td style="text-align:right;"> 31 </td>
-   <td style="text-align:left;"> 2021-01-02 </td>
+   <td style="text-align:right;"> 12.28891 </td>
+   <td style="text-align:right;"> 13.67669 </td>
+   <td style="text-align:right;"> 2.826186 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:left;"> 2020-12-31 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2020-12-03 </td>
-   <td style="text-align:right;"> 1000 </td>
-   <td style="text-align:right;"> 14.13229 </td>
-   <td style="text-align:right;"> 12.10365 </td>
-   <td style="text-align:right;"> 2.595275 </td>
-   <td style="text-align:right;"> 29 </td>
-   <td style="text-align:left;"> 2021-01-01 </td>
+   <td style="text-align:right;"> 999 </td>
+   <td style="text-align:right;"> 14.52999 </td>
+   <td style="text-align:right;"> 14.52567 </td>
+   <td style="text-align:right;"> 3.116622 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:left;"> 2021-01-04 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2020-12-04 </td>
-   <td style="text-align:right;"> 1000 </td>
-   <td style="text-align:right;"> 11.28733 </td>
-   <td style="text-align:right;"> 13.98396 </td>
-   <td style="text-align:right;"> 4.948148 </td>
-   <td style="text-align:right;"> 30 </td>
-   <td style="text-align:left;"> 2021-01-03 </td>
+   <td style="text-align:right;"> 998 </td>
+   <td style="text-align:right;"> 16.97783 </td>
+   <td style="text-align:right;"> 14.31412 </td>
+   <td style="text-align:right;"> 2.311552 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:left;"> 2021-01-07 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2020-12-05 </td>
-   <td style="text-align:right;"> 1000 </td>
-   <td style="text-align:right;"> 15.92855 </td>
-   <td style="text-align:right;"> 13.51244 </td>
-   <td style="text-align:right;"> 5.082913 </td>
-   <td style="text-align:right;"> 35 </td>
-   <td style="text-align:left;"> 2021-01-09 </td>
+   <td style="text-align:right;"> 999 </td>
+   <td style="text-align:right;"> 16.59452 </td>
+   <td style="text-align:right;"> 10.74174 </td>
+   <td style="text-align:right;"> 2.243968 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:left;"> 2021-01-04 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2020-12-06 </td>
-   <td style="text-align:right;"> 999 </td>
-   <td style="text-align:right;"> 11.68506 </td>
-   <td style="text-align:right;"> 17.30408 </td>
-   <td style="text-align:right;"> 3.693694 </td>
-   <td style="text-align:right;"> 33 </td>
-   <td style="text-align:left;"> 2021-01-08 </td>
+   <td style="text-align:right;"> 1000 </td>
+   <td style="text-align:right;"> 11.91844 </td>
+   <td style="text-align:right;"> 11.51703 </td>
+   <td style="text-align:right;"> 3.300532 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:left;"> 2021-01-02 </td>
   </tr>
 </tbody>
 </table>
@@ -200,8 +200,12 @@ head(agg_by_arrival_function(single_instance_manual), 6) %>%
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> 2021-01-01 </td>
+   <td style="text-align:left;"> 2020-12-31 </td>
    <td style="text-align:right;"> 1000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2021-01-01 </td>
+   <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2021-01-02 </td>
@@ -209,18 +213,14 @@ head(agg_by_arrival_function(single_instance_manual), 6) %>%
   </tr>
   <tr>
    <td style="text-align:left;"> 2021-01-03 </td>
-   <td style="text-align:right;"> 1000 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2021-01-04 </td>
    <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2021-01-05 </td>
-   <td style="text-align:right;"> 1001 </td>
+   <td style="text-align:left;"> 2021-01-04 </td>
+   <td style="text-align:right;"> 1998 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2021-01-06 </td>
+   <td style="text-align:left;"> 2021-01-05 </td>
    <td style="text-align:right;"> 0 </td>
   </tr>
 </tbody>
@@ -277,57 +277,57 @@ head(single_instance_function) %>%
 <tbody>
   <tr>
    <td style="text-align:left;"> 2020-12-01 </td>
-   <td style="text-align:right;"> 1001 </td>
-   <td style="text-align:right;"> 13.44265 </td>
-   <td style="text-align:right;"> 12.10665 </td>
-   <td style="text-align:right;"> 3.683083 </td>
-   <td style="text-align:right;"> 29 </td>
-   <td style="text-align:left;"> 2020-12-30 </td>
+   <td style="text-align:right;"> 1000 </td>
+   <td style="text-align:right;"> 13.35241 </td>
+   <td style="text-align:right;"> 14.03452 </td>
+   <td style="text-align:right;"> 3.609177 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:left;"> 2021-01-01 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2020-12-02 </td>
-   <td style="text-align:right;"> 1001 </td>
-   <td style="text-align:right;"> 15.81848 </td>
-   <td style="text-align:right;"> 12.29566 </td>
-   <td style="text-align:right;"> 6.150281 </td>
-   <td style="text-align:right;"> 34 </td>
-   <td style="text-align:left;"> 2021-01-05 </td>
+   <td style="text-align:right;"> 1000 </td>
+   <td style="text-align:right;"> 15.96927 </td>
+   <td style="text-align:right;"> 15.34748 </td>
+   <td style="text-align:right;"> 4.541379 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:left;"> 2021-01-07 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2020-12-03 </td>
    <td style="text-align:right;"> 1000 </td>
-   <td style="text-align:right;"> 12.57658 </td>
-   <td style="text-align:right;"> 11.55545 </td>
-   <td style="text-align:right;"> 3.205895 </td>
-   <td style="text-align:right;"> 27 </td>
-   <td style="text-align:left;"> 2020-12-30 </td>
+   <td style="text-align:right;"> 13.35139 </td>
+   <td style="text-align:right;"> 14.95523 </td>
+   <td style="text-align:right;"> 2.713672 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:left;"> 2021-01-03 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2020-12-04 </td>
-   <td style="text-align:right;"> 1001 </td>
-   <td style="text-align:right;"> 14.25658 </td>
-   <td style="text-align:right;"> 13.02955 </td>
-   <td style="text-align:right;"> 4.231432 </td>
-   <td style="text-align:right;"> 32 </td>
-   <td style="text-align:left;"> 2021-01-05 </td>
+   <td style="text-align:right;"> 1000 </td>
+   <td style="text-align:right;"> 15.24524 </td>
+   <td style="text-align:right;"> 18.08862 </td>
+   <td style="text-align:right;"> 3.398667 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:left;"> 2021-01-10 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2020-12-05 </td>
-   <td style="text-align:right;"> 1001 </td>
-   <td style="text-align:right;"> 14.00102 </td>
-   <td style="text-align:right;"> 16.12090 </td>
-   <td style="text-align:right;"> 3.075186 </td>
-   <td style="text-align:right;"> 33 </td>
-   <td style="text-align:left;"> 2021-01-07 </td>
+   <td style="text-align:right;"> 999 </td>
+   <td style="text-align:right;"> 14.14760 </td>
+   <td style="text-align:right;"> 11.30479 </td>
+   <td style="text-align:right;"> 3.183494 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:left;"> 2021-01-03 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2020-12-06 </td>
-   <td style="text-align:right;"> 1000 </td>
-   <td style="text-align:right;"> 15.57560 </td>
-   <td style="text-align:right;"> 13.03187 </td>
-   <td style="text-align:right;"> 3.856558 </td>
-   <td style="text-align:right;"> 32 </td>
-   <td style="text-align:left;"> 2021-01-07 </td>
+   <td style="text-align:right;"> 1001 </td>
+   <td style="text-align:right;"> 13.06839 </td>
+   <td style="text-align:right;"> 16.85933 </td>
+   <td style="text-align:right;"> 2.987275 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:left;"> 2021-01-08 </td>
   </tr>
 </tbody>
 </table>
@@ -390,54 +390,54 @@ test_outer_sim_smaller %>%
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> 12 </td>
+   <td style="text-align:left;"> 15 </td>
+   <td style="text-align:left;"> 2021-01-10 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 106 </td>
    <td style="text-align:left;"> 2021-01-10 </td>
    <td style="text-align:right;"> 999 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 105 </td>
+   <td style="text-align:left;"> 201 </td>
    <td style="text-align:left;"> 2021-01-10 </td>
-   <td style="text-align:right;"> 998 </td>
+   <td style="text-align:right;"> 1999 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 203 </td>
+   <td style="text-align:left;"> 298 </td>
    <td style="text-align:left;"> 2021-01-10 </td>
-   <td style="text-align:right;"> 1000 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 297 </td>
-   <td style="text-align:left;"> 2021-01-10 </td>
-   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2001 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 390 </td>
    <td style="text-align:left;"> 2021-01-10 </td>
-   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1000 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 482 </td>
    <td style="text-align:left;"> 2021-01-10 </td>
-   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 999 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 578 </td>
    <td style="text-align:left;"> 2021-01-10 </td>
-   <td style="text-align:right;"> 1001 </td>
+   <td style="text-align:right;"> 1000 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 669 </td>
+   <td style="text-align:left;"> 674 </td>
    <td style="text-align:left;"> 2021-01-10 </td>
-   <td style="text-align:right;"> 1998 </td>
+   <td style="text-align:right;"> 2000 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 764 </td>
-   <td style="text-align:left;"> 2021-01-10 </td>
-   <td style="text-align:right;"> 1997 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 865 </td>
+   <td style="text-align:left;"> 766 </td>
    <td style="text-align:left;"> 2021-01-10 </td>
    <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 860 </td>
+   <td style="text-align:left;"> 2021-01-10 </td>
+   <td style="text-align:right;"> 3001 </td>
   </tr>
 </tbody>
 </table>
@@ -526,36 +526,20 @@ test_me %>%
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> 2020-12-29 </td>
-   <td style="text-align:right;"> 1001 </td>
-  </tr>
-  <tr>
    <td style="text-align:left;"> 2020-12-30 </td>
-   <td style="text-align:right;"> 1001 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2020-12-30 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2020-12-31 </td>
-   <td style="text-align:right;"> 998 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2020-12-31 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2020-12-31 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2020-12-31 </td>
    <td style="text-align:right;"> 1000 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2021-01-01 </td>
-   <td style="text-align:right;"> 999 </td>
+   <td style="text-align:left;"> 2020-12-31 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020-12-31 </td>
+   <td style="text-align:right;"> 1001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020-12-31 </td>
+   <td style="text-align:right;"> 2000 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2021-01-01 </td>
@@ -564,6 +548,22 @@ test_me %>%
   <tr>
    <td style="text-align:left;"> 2021-01-01 </td>
    <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2021-01-01 </td>
+   <td style="text-align:right;"> 1001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2021-01-01 </td>
+   <td style="text-align:right;"> 1001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2021-01-01 </td>
+   <td style="text-align:right;"> 2000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2021-01-01 </td>
+   <td style="text-align:right;"> 1001 </td>
   </tr>
 </tbody>
 </table>
@@ -739,27 +739,4 @@ sim_plan_2 <- sim_function(num_sims = 100, num_ports = 10,
   mutate(sim = "scenario")
 
 sim_plan_comp <- rbind(sim_plan_1, sim_plan_2)
-
-ggplot(sim_plan_comp, aes(x=dwhse_arrival_date, y=dwhse_arrival_volume, group=sim, color=sim)) +
-  geom_line() +
-  theme_minimal() +
-  scale_color_manual(values=c("dodgerblue", "deeppink")) +
-  scale_y_continuous(limits = c(0, 2000), breaks = seq(0, 2000, 100)) +
-  scale_x_date(date_breaks = "1 week") +
-  labs(x = "Warehouse Arrival Date", y = "Warehouse Arrival Volume", title = "Multi Instance (Mean) Arrival Volume Scenario Comparison", color ="Scenario") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  geom_hline(yintercept = 1000, color = "red") +
-  annotate("rect", xmin = as.Date("2021-02-01"), xmax = as.Date("2021-02-15"),
-           ymin = 0, ymax = 2000,
-           alpha = .05)
 ```
-
-![](north-2021-step-by-step_files/figure-html/create-scenarios-1.png)<!-- -->
-
-## The Most Important Things to Remember
-
-1. <mark>Aggregating many independent instances to reveal possibilities is the key.</mark>
-2. <mark>Make sure you validate the output of every step (remove randomness before adding randomness).</mark>
-3. <mark>Domain expertise is as important as the code.</mark>
-4. <mark>Before you begin, it is important to understand the decisions so you know what levers you should create in your model - otherwise, endless what-ifs.</mark>
-4. <mark>If you want to calibrate your model, run it for historical periods to see where it performs well or fails.</mark>
