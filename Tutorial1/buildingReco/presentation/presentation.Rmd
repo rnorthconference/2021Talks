@@ -59,8 +59,9 @@ Introduce R tools that help you communicate a data story in a professional, sust
 
 # Not in this tutorial
 
->- Shiny - we are going to focus on HTML (primary) and PDF (secondary) reports
+>- Setting up version control - please use it! Check out Jenny Bryan's [Happy Git and Github with R](https://happygitwithr.com/)
 >- Details of the tables or graphics packages - these could easily be their own tutorials
+>- Shiny - we are going to focus on HTML (primary) and PDF (secondary) reports
 
 The good news is several speakers tomorrow will cover Shiny and other graphics applications!
 
@@ -257,16 +258,18 @@ Your report should:
 
 # Extensions
 
+ - Version control of your reports
  - Deployment on a centralized server such as RStudio Connect opens up options such as scheduled reporting with email blasts
  - HTML reporting could be extended to true Shiny reporting if your users are asking for more interactivity 
 
 ---
 
-# References and Thanks
+# References and Credits
 
- - Amazing artwork by Allison Horst sourced from: https://github.com/allisonhorst/stats-illustrations
-     + First page artwork credit: "Updated from Grolemund & Wickham's classis R4DS schematic, envisioned by Dr. Julia Lowndes for her 2019 useR! keynote talk and illustrated by Allison Horst."
+ - Artwork by Allison Horst sourced from [Github](https://github.com/allisonhorst/stats-illustrations)
  - [R for Data Science](https://r4ds.had.co.nz/workflow-projects.html) 
+ - [Advanced R](https://adv-r.hadley.nz/)
+ - [Happy Git and Github with R](https://happygitwithr.com/)
  - [R Markdown Driven Development by Emily Riederer at rstudio::conf 2020](https://www.rstudio.com/resources/rstudioconf-2020/rmarkdown-driven-development/)
 
  
