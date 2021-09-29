@@ -25,7 +25,13 @@ Speaker materials for 2021 noRth conference on September 29-30, 2021.
 - Install the following R packages in your R instance
 
 ```
-install.packages( 'tidyverse', 'igraph', 'ggplot2', 'ggraph', 'RColorBrewer', 'rmarkdown', 'DT', 'plotly', 'reactable', 'EnvStats', 'MASS')
+install.packages(c('rmarkdown', 'DT', 'plotly', 'highcharter', 
+'reactable', 'kableExtra', 'devtools', 'reticulate', 
+'shiny', 'shinydashboard', 'writexl', 'readxl', 
+'shiny.semantic’, bslib', 'DT', 'fGarch','kableExtra', 'pacman', 'png', 'gifski', 'gganimate', 'survminer', 'tidyverse', 'igraph', 'ggraph', 'RColorBrewer'))
+
+devtools::install_github("Trusted-AI/AIF360/aif360/aif360-r")
+
 ```
 # noRth Playlist
 https://www.youtube.com/playlist?list=PLZJbLCOGgmFHER8pPVj40Bta_rGCNPr1q
