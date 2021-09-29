@@ -79,7 +79,7 @@ reticulate::use_miniconda(condaenv = "r-test", required = TRUE)
 load_aif360_lib()
 ``` 
 
-The whole instalation process should take about 15 minutes
+The whole installation process should take about 15 minutes
 
 ### 2) Using Docker
 
@@ -91,7 +91,7 @@ Alternatively, you can Docker. Follow the steps below:
 
 Change the `yourpassword` to any password that you would like.
 ```
-docker run -e PASSWORD=yourpassword --rm -p 8787:8787 rocker/rstudio
+docker run -e PASSWORD=yourpassword --rm -p 8787:8787 gdequeiroz/north-conference
 ```
 
 2.3) Open your browser and type: `localhost:8787` 
@@ -99,7 +99,14 @@ docker run -e PASSWORD=yourpassword --rm -p 8787:8787 rocker/rstudio
 2.4) You will be prompted to sign-in to RStudio. Use the credentials: 
 
 - Username:  rstudio
-- Password: the one you defined above
+- Password: the one (yourpassword) you defined above
 
-2.5) Follow the package installation steps 1.1 through 1.5 above.
+2.5) Finally, load the aif360 functions
 
+``` r
+library(aif360)
+reticulate::use_miniconda(condaenv = "r-test", required = TRUE)
+load_aif360_lib()
+```
+
+2.6) Run the scripts: `adversarial-debiasing-in-processing.R` and `reweighing-pre-processing.R`
